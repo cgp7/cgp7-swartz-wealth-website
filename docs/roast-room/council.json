@@ -1,0 +1,19 @@
+{
+  "title": "SWM website: niche or broad positioning",
+  "decision": "Lead the new Swartz Wealth Management website with a business-owner 'both shores' niche, a broad family positioning, or keep the current site.",
+  "mode": "quick",
+  "options": [
+    { "id": "A", "label": "Both shores niche: business owners first" },
+    { "id": "B", "label": "Broad: families, individuals, owners" },
+    { "id": "C", "label": "Keep current site, fix wording" }
+  ],
+  "weights": {
+    "hormozi": { "weight": 3, "reason": "Positioning is the offer" },
+    "garyvee": { "weight": 3, "reason": "Attention for a firm with no audience" },
+    "graham": { "weight": 2, "reason": "Is there a narrow group that wants this" },
+    "buffett": { "weight": 2, "reason": "Reputation and regulatory downside" }
+  },
+  "seats": ["hormozi", "garyvee", "graham", "buffett"],
+  "brief": "New two-advisor wealth manager in Chicago and West Michigan with $0 under management. Choose the homepage positioning for a redesign: a business-owner niche, a broad family pitch, or no change.",
+  "assumptions": ["Jake and Adam give 2 to 4 hours a month to content (assumed)", "Success is 3 to 5 booked consultations a month within 6 months (assumed)"]
+}

@@ -1,0 +1,27 @@
+{
+  "cruxes": [
+    {
+      "question": "Narrow A to owners at a sale, or keep A as built?",
+      "sides": [
+        { "position": "One avatar: owners at or after a sale", "seats": ["Hormozi", "Graham"] },
+        { "position": "A as built, families second", "seats": ["Gary V", "Buffett"] }
+      ]
+    },
+    {
+      "question": "Can the 'deal table' headline survive scrutiny?",
+      "sides": [
+        { "position": "Yes, it is the proof in place of testimonials", "seats": ["Hormozi", "Gary V"] },
+        { "position": "It stretches an analyst's resume", "seats": ["Buffett"] }
+      ]
+    },
+    {
+      "question": "Is the owner niche worth the insurance conflict?",
+      "sides": [
+        { "position": "Real risk: owners buy policies on commission", "seats": ["Buffett"] },
+        { "position": "Not yet answered", "seats": ["Hormozi", "Gary V", "Graham"] }
+      ]
+    }
+  ],
+  "unanimous": true,
+  "note": "Everyone backs A; the fight is how narrow to go and whether the deal-table claim holds up."
+}

@@ -1,0 +1,33 @@
+{
+  "label": "GO WITH CONDITIONS",
+  "call": "Lead with Version A: business owners and professionals first, families second. Drop the 'deal table' headline, put Jake's exact titles in his bio, and post an insurance commission policy on the fee page before launch.",
+  "recommended": "A",
+  "why": [
+    { "point": "A stated niche serves the strangers CPAs and attorneys forward; B's tagline is on every adviser's homepage.", "seat": "Graham", "framework": "Small intense fire" },
+    { "point": "About 3 owners reach $5M, against 17 to 39 families.", "seat": "Hormozi", "framework": "Fractal 80/20" },
+    { "point": "Fees and custody are in both versions, so only the hero differs.", "seat": "Buffett", "framework": "Birds in the bush" },
+    { "point": "The site converts referrals; Jake's calls to CPAs and attorneys bring them.", "seat": "Graham", "framework": "Find the bottleneck" }
+  ],
+  "minority": { "seat": "Buffett", "quote": "Seventeen $300K families at 1.50% pay $76K; three $2M owners at an assumed 1% pay $60K, and losing one costs a third.", "would_have_to_be_true": "Jake's warm list holds more near-term rollovers than owners near a sale." },
+  "next_steps": [
+    { "when": "This week", "action": "Jake answers the starred questions, especially the commission policy and the compliance reviewer." },
+    { "when": "By 2026-11-15", "action": "Jake calls 30 CPAs, M&A attorneys and brokers and tests both hero lines." },
+    { "when": "Before launch", "action": "Compliance clears the hero, bios and fee page; launch Version A." }
+  ],
+  "kill_criteria": "Fewer than 20 of 30 referral sources take the call by 2026-11-15, or fewer than 10 qualifying owners named by 2026-11-30: lead with families.",
+  "conditions": [
+    "Compliance reviewer clears the hero and both bios before launch",
+    "Fee page states the insurance commission policy at launch",
+    "20 of 30 referral sources take Jake's call by 2026-11-15; 10 qualifying owners named by 2026-11-30",
+    "Fewer than 3 of the first 10 consults are $1M+ owners or professionals by 2027-06-30: switch to B"
+  ],
+  "fights": [
+    { "crux": "How narrow should A go?", "story": "Hormozi and Graham wanted owners near a sale only; Gary V and Buffett kept A as built. Graham widened to owners within three years of a sale. The hero keeps owners and professionals, and sale timing drives outreach." },
+    { "crux": "Can 'the deal table' survive scrutiny?", "story": "Hormozi called it proof; Buffett called it a stretched analyst resume. All four dropped it in Round 2." },
+    { "crux": "Is the owner niche worth the insurance conflict?", "story": "Buffett raised it alone; in Round 2 every seat made a posted commission policy a condition." }
+  ],
+  "amendments": [],
+  "cheapest_test": "Ten referral-source calls this month, before the site launches.",
+  "revisit": "2027-06-30, with the profile of the first ten consultations.",
+  "override_note": ""
+}
