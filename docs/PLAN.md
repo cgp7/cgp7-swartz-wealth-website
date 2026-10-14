@@ -35,10 +35,10 @@ There are two homepages to compare (see README). The council recommended Version
 |---|---|---|
 | Published fees with a calculator | Arnold & Mote, Plancorp, Facet | `fees.html`, both homepages |
 | "Start here" router by situation | Root Financial | Version A homepage |
-| Custody explainer ("we never hold your money") | LVM Capital (Kalamazoo) | `about.html#custody`, both homepages |
+| Custody explainer ("we never hold your money") | LVM Capital (Kalamazoo) | One answer in the questions on `about.html` |
 | Questions to ask any advisor, with our answers | Define Financial's comparison table, recast to avoid competitor claims | Version B homepage, `about.html` |
 | Segment pages with labelled examples | Grand Wealth (Grand Rapids), Mission Wealth | `who-we-serve.html` |
-| Named three-step process | Define Financial, Center for Financial Planning | Both homepages, `services.html` |
+| Named three-step process | Define Financial, Center for Financial Planning | `services.html` |
 | Conflicts stated plainly | Center for Financial Planning ("Fees, Compensation and Fit") | `fees.html`, rollover guide |
 | Guides with an interactive tool | Root Financial, Plancorp | `guide-401k-rollover.html` |
 
@@ -67,10 +67,16 @@ There are two homepages to compare (see README). The council recommended Version
 - **Plain-language explainers:**
     - a glossary of eight terms, each showing how it applies to SWM;
     - services as open-and-close rows, each with a one-sentence answer;
-    - the custody diagram, animated;
     - a fee calculator that shows dollars.
 - **Version A and B** now share one homepage and swap the headline and section order.
 - **Notes on the page use the codes from the Google Doc:**
     - J for Jake's 9 questions;
     - R for research before showing him;
     - Q for later.
+
+## Homepage trim (October 14, 2026)
+
+- **Overview, not a landing page.** The homepage now introduces the firm and sends people on to each page: services (new six-tile index, each opening its row on `services.html`), who we work with, fees with the calculator, and the two advisors. It dropped from 11 sections to 7 and is about 40% shorter on desktop.
+- **Moved off the homepage:** the process (still on `services.html`), the team bios (`about.html`), the glossary (now on `insights.html`) and the guides list (`insights.html`).
+- **Less about Schwab.** The custody diagram is gone from the homepage and About page. Schwab now appears only where it's factual: one answer on About, how billing works on the fee page, the glossary, the disclosures and the client login link.
+

@@ -16,7 +16,7 @@ python3 -m http.server -d site 8000   # then open http://localhost:8000
 - very large, tight Inter Tight headlines;
 - a WebGL "lake water" surface in the hero and call-to-action (`src/assets/js/water.js`);
 - hairline rows and white pill buttons;
-- GSAP motion (`src/assets/js/motion.js`): split-line headline reveals, statements that light up word by word as you scroll, a pinned sideways process section on desktop, the Lake Michigan map drawing itself, and animated custody connectors;
+- GSAP motion (`src/assets/js/motion.js`): split-line headline reveals, statements that light up word by word as you scroll, a pinned sideways process section on desktop, and the Lake Michigan map drawing itself;
 - smooth scrolling with Lenis.
 
 Every animation is optional. With reduced motion, JavaScript off, or the CDN blocked, the content still shows and the calculator still works.
@@ -36,11 +36,12 @@ A bar at the bottom of every page is for review only:
 
 | Page | What's on it |
 |---|---|
+| `index.html`, `home-b.html` | A short overview that sends people to the other pages: services, who we work with, fees with the calculator, the two advisors on the lake map, and the call to action |
 | `who-we-serve.html` | The three client groups, each with a labelled illustration (not a real client) |
 | `services.html` | Six services, investment approach, process, two ways to work |
 | `fees.html` | Full fee schedule, calculator, billing, what's not included, conflicts |
-| `about.html` | Story, bios, "where your money lives" custody diagram, six questions to ask any advisor |
-| `insights.html` | Guides index |
+| `about.html` | Story, bios, six questions to ask any advisor |
+| `insights.html` | Guides index and the glossary of eight terms |
 | `guide-401k-rollover.html` | Full guide with an interactive 401(k) options helper |
 | `contact.html` | Embedded Calendly booking (Jake's existing link) |
 | `disclosures.html` | Disclosures, privacy notice placeholder, website privacy |
@@ -54,7 +55,7 @@ python3 build.py      # rebuilds site/ from src/
 ```
 
 - `src/*.html` holds one file per page. The first line is metadata (title, description, active nav item).
-- `src/partials/` holds sections shared across pages: fee calculator, custody diagram, process, team, guides and the call-to-action.
+- `src/partials/` holds sections shared across pages: fee calculator, glossary, process, team, guides and the call-to-action.
 - The header, navigation and footer are defined once, in `build.py`.
 - `src/assets/` (CSS, JS, favicon) is copied to `site/assets/`.
 

@@ -112,7 +112,7 @@
 
     /* Rows. */
     q(scope, "[data-rows]").forEach(function (list) {
-      gsap.fromTo(q(list, ".row, .acc-item"), { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 1, ease: ease, stagger: 0.08,
+      gsap.fromTo(q(list, ".row, .acc-item, .svc"), { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 1, ease: ease, stagger: 0.08,
         scrollTrigger: { trigger: list, start: "top 86%", once: true } });
     });
 
@@ -161,25 +161,6 @@
           gsap.from(card, { autoAlpha: 0, y: 40, duration: 1, ease: ease, scrollTrigger: { trigger: card, start: "top 88%", once: true } });
         });
       });
-    });
-
-    /* Custody flow. */
-    q(scope, "[data-flow]").forEach(function (flow) {
-      var wide = window.matchMedia("(min-width: 1000px)").matches;
-      var nodes = q(flow, ".flow-node"), bars = q(flow, ".flow-link .bar"), labels = q(flow, ".flow-link em"), dots = q(flow, ".flow-link .dot");
-      var grow = wide ? { scaleX: 0, duration: 0.7, ease: "power2.inOut" } : { scaleY: 0, duration: 0.7, ease: "power2.inOut" };
-      gsap.timeline({ scrollTrigger: { trigger: flow, start: "top 80%", once: true } })
-        .from(nodes[0], { autoAlpha: 0, y: 30, duration: 0.8, ease: ease })
-        .from(bars[0], grow).from(labels[0], { autoAlpha: 0, duration: 0.4 }, "-=0.2")
-        .from(nodes[1], { autoAlpha: 0, y: 30, duration: 0.8, ease: ease })
-        .from(bars[1], grow).from(labels[1], { autoAlpha: 0, duration: 0.4 }, "-=0.2")
-        .from(nodes[2], { autoAlpha: 0, y: 30, duration: 0.8, ease: ease })
-        .add(function () {
-          dots.forEach(function (d, i) {
-            gsap.fromTo(d, wide ? { left: "0%", opacity: 0 } : { top: "0%", opacity: 0 },
-              Object.assign({ opacity: 1, duration: 2.2, ease: "power1.inOut", repeat: -1, repeatDelay: 0.6, delay: i * 1.1, yoyo: i === 1 }, wide ? { left: "100%" } : { top: "100%" }));
-          });
-        });
     });
 
     /* Team photos: slow parallax. */

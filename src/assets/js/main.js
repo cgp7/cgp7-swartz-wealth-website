@@ -111,6 +111,14 @@
     });
   });
 
+  /* A link such as services.html#tax opens that item. */
+  window.SWM.openItem = function (el) {
+    var item = el && el.closest(".acc-item");
+    var btn = item && item.querySelector(":scope > button");
+    if (btn && !item.classList.contains("is-open")) btn.click();
+  };
+  if (location.hash.length > 1) window.SWM.openItem(document.getElementById(location.hash.slice(1)));
+
   /* ---------- Glossary ---------- */
   document.querySelectorAll("[data-gloss]").forEach(function (box) {
     var buttons = box.querySelectorAll(".gloss-terms button");
