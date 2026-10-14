@@ -30,7 +30,7 @@ A bar at the bottom of every page is for review only:
     - grey **Later · Q#** are questions that can wait.
 
   Use "Jake" when presenting.
-- **Checklist** opens the Google Doc that holds every J, R and Q item. The doc is private to its owner.
+- **Checklist** opens "Website questions for Swartz Wealth Management", the Google Doc written for Jake with the J and Q questions. The R research items are kept in a separate private prep doc. Both docs are private to their owner until shared.
 
 ## Pages
 
