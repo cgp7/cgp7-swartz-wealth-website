@@ -1,84 +1,85 @@
-<!-- title: Changing jobs? Your old 401(k) has four options · Swartz Wealth Management | desc: Leave it, move it to your new plan, roll it to an IRA, or cash it out. What each option means, the traps to avoid, and a quick helper. | nav: guides | scripts: assets/js/rollover.js -->
+<!-- title: Changing jobs? Your old 401(k) has four options · Swartz Wealth Management | desc: Leave it, move it to your new plan, roll it to an IRA, or cash it out. What each option means, the mistakes to avoid, and a short helper. | nav: guides | scripts: assets/js/rollover.js -->
 <main id="main">
-  <header class="page-head">
-    <div class="container prose">
-      <p class="breadcrumb"><a href="index.html" data-home-link>Home</a> / <a href="insights.html">Guides</a> / 401(k) options</p>
-      <span class="eyebrow">Guide · 6 minute read</span>
-      <h1>Changing jobs? Your old 401(k) has four options.</h1>
-      <p class="lead">When you leave an employer, your 401(k) doesn't have to follow you, but it can. Here's what each choice means, and a short helper to see which ones fit your situation.</p>
+  <section class="page-hero">
+    <!-- include:water -->
+    <div class="wrap hero-inner">
+      <p class="crumb" data-fade><a href="index.html" data-home-link>Home</a> / <a href="insights.html">Guides</a> / 401(k) options</p>
+      <h1 class="d-l" data-split>Changing jobs? Your old 401(k) has four options.</h1>
+      <p class="lede" data-fade>Your 401(k) doesn't have to follow you when you leave, but it can. Here's what each choice means, and a short helper to see which ones fit you. Six-minute read.</p>
     </div>
-  </header>
+  </section>
 
   <section class="section-tight">
-    <div class="container prose">
-      <h2 style="margin-top:0">The four options at a glance</h2>
-      <div class="table-scroll">
-        <table>
-          <thead><tr><th scope="col">Option</th><th scope="col">Good for</th><th scope="col">Watch out for</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Leave it in your old plan</strong></td><td>Plans with low fees and good funds; leaving at 55 or older</td><td>Small balances can be moved out by the plan; easy to lose track of</td></tr>
-            <tr><td><strong>Move it to your new employer's plan</strong></td><td>Keeping everything in one place, with employer-plan protections</td><td>Not every plan accepts rollovers; investment choices may be limited</td></tr>
-            <tr><td><strong>Roll it to an IRA</strong></td><td>More investment choice; combining several old accounts</td><td>Costs vary widely; you lose the age-55 exception and some creditor protection</td></tr>
-            <tr><td><strong>Cash it out</strong></td><td>A true emergency with no other option</td><td>Income tax, often a 10% penalty under age 59&frac12;, and 20% withheld up front</td></tr>
-          </tbody>
-        </table>
+    <div class="wrap">
+      <div class="article">
+        <h2 style="margin-top:0">The four options side by side</h2>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th scope="col">Option</th><th scope="col">Suits you if</th><th scope="col">Watch for</th></tr></thead>
+            <tbody>
+              <tr><td>Leave it in your old plan</td><td>The plan has low fees and good funds, or you're leaving at 55 or older</td><td>Plans can move small balances out on their own, and old accounts are easy to lose track of</td></tr>
+              <tr><td>Move it to your new employer's plan</td><td>You want everything in one place, with employer-plan protections</td><td>Not every plan accepts rollovers, and the fund choice may be narrow</td></tr>
+              <tr><td>Roll it to an IRA</td><td>You want more investment choice, or to combine several old accounts</td><td>Costs vary widely, and you give up the age-55 exception and some creditor protection</td></tr>
+              <tr><td>Cash it out</td><td>It's a real emergency and nothing else works</td><td>Income tax, often a 10% penalty under 59&frac12;, and 20% withheld up front</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="helper" data-rollover>
+          <h2>Which options fit you?</h2>
+          <p class="muted small">Answer four questions. Nothing you choose leaves your browser.</p>
+          <fieldset>
+            <legend>Does your new job offer a 401(k) that accepts rollovers?</legend>
+            <div class="opts">
+              <label><input type="radio" name="newplan" value="yes"> Yes</label>
+              <label><input type="radio" name="newplan" value="no"> No, or no new job yet</label>
+              <label><input type="radio" name="newplan" value="unsure" checked> Not sure</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Will you be 55 or older in the year you leave this job?</legend>
+            <div class="opts">
+              <label><input type="radio" name="age55" value="yes"> Yes</label>
+              <label><input type="radio" name="age55" value="no" checked> No</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Do you hold your employer's own stock inside the 401(k)?</legend>
+            <div class="opts">
+              <label><input type="radio" name="stock" value="yes"> Yes</label>
+              <label><input type="radio" name="stock" value="no" checked> No</label>
+              <label><input type="radio" name="stock" value="unsure"> Not sure</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Do you need some of this money in the next year?</legend>
+            <div class="opts">
+              <label><input type="radio" name="cash" value="yes"> Yes</label>
+              <label><input type="radio" name="cash" value="no" checked> No</label>
+            </div>
+          </fieldset>
+          <h3>Your options</h3>
+          <div class="helper-results" data-results aria-live="polite"></div>
+          <p class="tiny muted" style="margin-top:16px">General federal rules only. Your plan's own rules, state taxes and the rest of your situation matter, so talk to a tax professional before you act.</p>
+        </div>
+
+        <h2>Mistakes that cost people money</h2>
+        <h3>Not asking for a direct rollover</h3>
+        <p>If the old plan sends the money straight to the new account, nothing is withheld. If it sends you a check, 20% is withheld for tax, and you have 60 days to deposit the full amount, including that 20%, or the difference is taxed.</p>
+        <h3>Missing the age-55 exception</h3>
+        <p>Leave a job in or after the year you turn 55 and you can usually take money from that employer's 401(k) without the 10% early-withdrawal penalty. Move it to an IRA and that exception generally no longer applies.</p>
+        <h3>Rolling over company stock without checking</h3>
+        <p>If your 401(k) holds your employer's stock, a tax treatment called net unrealized appreciation may apply. Rolling the stock into an IRA gives it up, so look at this before moving anything.</p>
+        <h3>Forgetting Roth money and loans</h3>
+        <p>Roth 401(k) money should go to a Roth account to keep its tax treatment. An outstanding 401(k) loan can fall due quickly when you leave, and an unpaid balance can become taxable.</p>
+
+        <div class="boxed">
+          <p><strong>Our conflict.</strong> If you roll money into an account we manage, we earn a fee on it. Sometimes leaving your 401(k) where it is, or moving it to your new plan, is the better choice, and we'll tell you when it is.</p>
+        </div>
+        <div class="note note-later"><b>Later · Q14</b><p>Jake to confirm this conflict statement.</p></div>
+        <p><a class="btn btn-light" href="contact.html">Talk through your rollover <span class="chip">{{arrow}}</span></a></p>
+        <p class="tiny muted">Last reviewed October 2026. General education, not individualized tax or investment advice. Rules can change.</p>
       </div>
-
-      <div class="helper" id="rollover-helper" data-rollover>
-        <h2 style="margin-top:0">Which options fit you?</h2>
-        <p class="muted small">Answer four questions. Nothing you choose leaves your browser.</p>
-        <fieldset>
-          <legend>1. Does your new job offer a 401(k) that accepts rollovers?</legend>
-          <div class="opts">
-            <label><input type="radio" name="newplan" value="yes"> Yes</label>
-            <label><input type="radio" name="newplan" value="no"> No, or no new job yet</label>
-            <label><input type="radio" name="newplan" value="unsure" checked> Not sure</label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>2. Will you be 55 or older in the year you leave this job?</legend>
-          <div class="opts">
-            <label><input type="radio" name="age55" value="yes"> Yes</label>
-            <label><input type="radio" name="age55" value="no" checked> No</label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>3. Do you hold your employer's own stock inside the 401(k)?</legend>
-          <div class="opts">
-            <label><input type="radio" name="stock" value="yes"> Yes</label>
-            <label><input type="radio" name="stock" value="no" checked> No</label>
-            <label><input type="radio" name="stock" value="unsure"> Not sure</label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>4. Do you need some of this money in the next year?</legend>
-          <div class="opts">
-            <label><input type="radio" name="cash" value="yes"> Yes</label>
-            <label><input type="radio" name="cash" value="no" checked> No</label>
-          </div>
-        </fieldset>
-        <h3>Your options</h3>
-        <div class="helper-results" data-results aria-live="polite"></div>
-        <p class="tiny muted" style="margin-top:14px">Educational only, based on general federal rules. Your plan's own rules, state taxes and your full situation matter. Talk to a tax professional before you act.</p>
-      </div>
-
-      <h2>Things that trip people up</h2>
-      <h3>Ask for a direct rollover</h3>
-      <p>If the old plan sends money straight to the new account, nothing is withheld. If it sends you a check instead, it must withhold 20% for taxes, and you have 60 days to deposit the full amount, including the 20%, to avoid tax on the difference.</p>
-      <h3>The age-55 exception</h3>
-      <p>If you leave a job in or after the year you turn 55, you can usually take money from that employer's 401(k) without the 10% early-withdrawal penalty. Roll it to an IRA and that exception generally no longer applies.</p>
-      <h3>Company stock</h3>
-      <p>If your 401(k) holds your employer's stock, a special tax treatment called net unrealized appreciation may apply. Rolling that stock into an IRA gives it up, so look at this before you move anything.</p>
-      <h3>Roth money and loans</h3>
-      <p>Roth 401(k) money should go to a Roth account to keep its tax treatment. If you have an outstanding 401(k) loan, leaving your job can make it due quickly; an unpaid balance can become taxable.</p>
-
-      <div class="callout">
-        <p><strong>Our conflict, stated plainly.</strong> If you roll money into an account we manage, we earn a fee on it. Sometimes leaving your 401(k) where it is, or moving it to your new plan, is the better choice, and we'll tell you when it is.</p>
-      </div>
-      <aside class="review-note"><strong>For Jake · Q14</strong><p>This conflict statement matches the rollover disclosure regulators expect. Please confirm the wording.</p></aside>
-
-      <p><a class="btn btn-primary" href="contact.html">Talk through your rollover</a></p>
-      <p class="tiny muted">Last reviewed October 2026. General education, not individualized tax or investment advice. Rules can change.</p>
     </div>
   </section>
 </main>

@@ -1,0 +1,28 @@
+{
+  "cruxes": [
+    {
+      "question": "Walk Jake through it live, or send a short video first?",
+      "sides": [
+        { "position": "Live walkthrough, 30 to 60 minutes", "seats": ["Graham", "Bezos", "Martell", "Wickman"] },
+        { "position": "3-minute video, then ask for a call", "seats": ["Gary V", "Hormozi"] },
+        { "position": "Password link and an email", "seats": ["Buffett"] }
+      ]
+    },
+    {
+      "question": "Put the builder's terms in the first ask, or get a yes first?",
+      "sides": [
+        { "position": "Terms in the first ask", "seats": ["Hormozi", "Buffett", "Wickman", "Martell"] },
+        { "position": "Yes on the project and a reviewer first", "seats": ["Graham", "Bezos"] }
+      ]
+    },
+    {
+      "question": "Does trimming to two pages hide the work that earns the job?",
+      "sides": [
+        { "position": "Argue A at full strength", "seats": ["Hormozi", "Graham"] },
+        { "position": "B: less is more for a cold first look", "seats": ["Bezos", "Martell", "Wickman", "Buffett", "Gary V"] }
+      ]
+    }
+  ],
+  "unanimous": true,
+  "note": "All seven back the trimmed version; the fight is how to deliver it and whether to name a price."
+}

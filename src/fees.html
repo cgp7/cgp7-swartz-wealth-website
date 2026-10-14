@@ -1,97 +1,87 @@
 <!-- title: Fees · Swartz Wealth Management | desc: Our full fee schedule, a calculator that shows your fee in dollars, how billing works, and the conflicts we want you to know about. | nav: fees -->
 <main id="main">
-  <header class="page-head">
-    <div class="container">
-      <p class="breadcrumb"><a href="index.html" data-home-link>Home</a> / Fees</p>
-      <span class="eyebrow">Fees</span>
-      <h1>Here's exactly what we charge.</h1>
-      <p class="lead">No hidden costs and no need to ask. These are the same numbers in our Form ADV, the disclosure document we file with regulators.</p>
-      <aside class="review-note"><strong>For Jake · Q6 to Q10</strong><p>Everything on this page comes from your Form ADV Part 2A (January 2026). Nothing goes live until you've confirmed you want fees published.</p></aside>
+  <section class="page-hero">
+    <!-- include:water -->
+    <div class="wrap hero-inner">
+      <p class="crumb" data-fade><a href="index.html" data-home-link>Home</a> / Fees</p>
+      <h1 class="d-l" data-split>Here's exactly what we charge.</h1>
+      <p class="lede" data-fade>The same numbers we file with regulators, in plain language, with a calculator so you can see yours.</p>
+      <div class="note note-jake"><b>For Jake · J2</b><p>Everything here comes from your Form ADV Part 2A (January 2026). Nothing goes live until you agree to publish it.</p></div>
+      <div class="note note-check"><b>Check first · R12</b><p>Have the band-edge numbers ready to open the call: $2.5M pays $25,000; $2.6M pays $22,100.</p></div>
     </div>
-  </header>
+  </section>
 
-  <section class="section-tight" aria-labelledby="schedule-title">
-    <div class="container split" style="align-items:start">
+  <section class="section light" id="fees" aria-labelledby="sched-t">
+    <div class="wrap fees-grid">
       <div>
-        <h2 id="schedule-title">Wealth management</h2>
-        <p>An annual percentage of the assets we manage, with financial planning included. The rate depends on the size of your balance.</p>
-        <div class="table-scroll">
-          <table class="fee-table">
-            <caption class="visually-hidden">Annual wealth management fee by assets under management</caption>
-            <thead><tr><th scope="col">Assets we manage</th><th scope="col">Annual fee</th></tr></thead>
-            <tbody>
-              <tr data-band-row="0"><td>Up to $500,000</td><td>1.50%</td></tr>
-              <tr data-band-row="1"><td>$500,000 to $1 million</td><td>1.25%</td></tr>
-              <tr data-band-row="2"><td>$1 million to $2.5 million</td><td>1.00%</td></tr>
-              <tr data-band-row="3"><td>$2.5 million to $5 million</td><td>0.85%</td></tr>
-              <tr data-band-row="4"><td>Over $5 million</td><td>0.75%</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="small muted">One rate applies to your whole balance. Example: $2.6 million falls in the 0.85% band, so the fee is $22,100 a year, or $1,841.67 a month. No account minimum. Fees may be negotiable; your advisory agreement sets your final fee.</p>
+        <h2 id="sched-t" class="d-m" data-split>Wealth management</h2>
+        <p class="lede" data-reveal style="margin-top:22px">A yearly percentage of the money we manage, with financial planning included. One rate applies to your whole balance, set by the band it falls in.</p>
+        <div data-reveal><!-- include:schedule --></div>
+        <p class="small muted" data-reveal style="margin-top:22px">Example: $2.6 million falls in the 0.85% band, so the fee is $22,100 a year, or $1,841.67 a month. There's no account minimum. Fees may be negotiable, and your advisory agreement sets your final fee.</p>
+        <div class="note note-later"><b>Later · Q9</b><p>Should the site say fees are negotiable? Your brochure does.</p></div>
       </div>
       <!-- include:fee-calc -->
     </div>
   </section>
 
-  <section class="section section-alt" id="planning" aria-labelledby="planning-title">
-    <div class="container split">
-      <div>
-        <h2 id="planning-title">Standalone financial planning</h2>
-        <p>If you'd rather carry out a plan yourself, we'll build one for a one-time fee.</p>
-        <p><strong style="font-family:var(--font-display);font-size:1.6rem;font-weight:500">$150 an hour</strong><br><span class="muted">Typically $1,500 to $3,000 for a full plan, depending on complexity. We'll quote you before we start.</span></p>
+  <section class="section" id="planning" aria-labelledby="plan-t">
+    <div class="wrap">
+      <div class="head-row">
+        <h2 id="plan-t" class="d-l" data-split>Or pay once for a plan.</h2>
+        <p class="lede" data-reveal>If you'd rather carry out a plan yourself, we'll build one for $150 an hour. A full plan usually comes to $1,500 to $3,000, and we quote before we start.</p>
       </div>
-      <ul class="check-list">
-        <li>You can end the engagement at any time, and pay only for work completed.</li>
-        <li>We never ask for more than $500 six or more months in advance.</li>
-        <li>You're under no obligation to invest with us afterwards.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="billing-title">
-    <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">How billing works</span>
-        <h2 id="billing-title">You can see every dollar we're paid.</h2>
-      </div>
-      <ol class="steps">
-        <li class="step"><span class="step-num">01</span><h3>You authorize it</h3><p>We deduct our fee only with your written permission, given when you open your account.</p></li>
-        <li class="step"><span class="step-num">02</span><h3>Monthly, in advance</h3><p>Each month's fee is based on your balance on the last business day of the month before.</p></li>
-        <li class="step"><span class="step-num">03</span><h3>On your statement</h3><p>Schwab shows every fee on your statements, which you receive at least quarterly.</p></li>
+      <ol class="numbered" data-reveal>
+        <li><span>You can end the work at any time and pay only for what's been done.</span></li>
+        <li><span>We never ask for more than $500 six or more months in advance.</span></li>
+        <li><span>You're under no obligation to invest with us afterwards.</span></li>
       </ol>
-      <p class="small muted" style="margin-top:24px">Either of us can end the agreement with 30 days' written notice. You'll get a prorated refund of any fee paid for days after it ends.</p>
+      <div class="note note-later"><b>Later · Q8</b><p>Confirm the $150 rate and the $1,500 to $3,000 range are current.</p></div>
     </div>
   </section>
 
-  <section class="section section-alt" aria-labelledby="extra-title">
-    <div class="container grid grid-2">
-      <div>
-        <h2 id="extra-title">What our fee doesn't cover</h2>
-        <ul class="check-list">
-          <li><strong>Fund expenses.</strong> Index funds and ETFs charge their own small annual fees, shown in each fund's prospectus.</li>
-          <li><strong>Custodian and transaction charges.</strong> Schwab may charge for some trades, wires or transfers.</li>
-          <li><strong>Insurance premiums</strong>, if you buy a policy.</li>
-        </ul>
-        <p class="small muted">We'll show you these costs before you invest.</p>
+  <section class="section" aria-labelledby="bill-t">
+    <div class="wrap">
+      <div class="head-row">
+        <h2 id="bill-t" class="d-l" data-split>How billing works</h2>
+        <p class="lede" data-reveal>You can see every dollar we're paid.</p>
       </div>
-      <div>
-        <h2>Conflicts we want you to know about</h2>
-        <ul class="check-list">
-          <li><strong>Insurance commissions.</strong> Jake is a licensed insurance agent and may earn commissions on policies he sells. That gives him a reason to recommend insurance. You can buy any policy through any agent you choose.</li>
-          <li><strong>Rollovers.</strong> If you move a 401(k) into an account we manage, we earn a fee on it. We'll explain all your options first.</li>
-          <li><strong>Schwab services.</strong> Schwab gives advisers like us access to institutional tools and support. Our full Form ADV explains this.</li>
-        </ul>
-        <aside class="review-note"><strong>For Jake · Q14b (council condition)</strong><p>Every advisor on the Roast Room council required a posted commission policy before launch. For example: "For advisory clients, any insurance commission is credited against your advisory fee." Your call.</p></aside>
+      <ol class="numbered" data-reveal>
+        <li><span>You approve the fee in writing when you open your account.</span></li>
+        <li><span>We bill monthly, in advance, based on your balance on the last business day of the month before.</span></li>
+        <li><span>Schwab deducts the fee and shows it on your statements, which arrive at least every quarter.</span></li>
+        <li><span>Either of us can end the agreement with 30 days' written notice, and you get back any fee paid for days after it ends.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section light" aria-label="Costs and conflicts">
+    <div class="wrap cols-2">
+      <div data-reveal>
+        <h2 class="d-m">What our fee doesn't cover</h2>
+        <ol class="numbered">
+          <li><span>Index funds and ETFs charge their own small yearly fee, shown in each fund's prospectus.</span></li>
+          <li><span>Schwab may charge for some trades, wires or transfers.</span></li>
+          <li><span>Insurance premiums, if you buy a policy, are paid to the insurer.</span></li>
+        </ol>
+        <p class="small muted" style="margin-top:18px">We'll show you these costs before you invest.</p>
+      </div>
+      <div data-reveal>
+        <h2 class="d-m">Conflicts you should know about</h2>
+        <ol class="numbered">
+          <li><span>Jake is a licensed insurance agent and may earn commissions on policies he sells. That gives him a reason to recommend insurance. You can buy any policy through any agent you like.</span></li>
+          <li><span>If you move a 401(k) into an account we manage, we earn a fee on it. We'll explain every option first.</span></li>
+          <li><span>Schwab gives advisers like us institutional tools and support. Our Form ADV explains how.</span></li>
+        </ol>
+        <div class="note note-jake"><b>For Jake · J4</b><p>The advisory council made a posted commission policy a condition of launch. Options: credit commissions against fees, refer insurance out, or publish typical amounts.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="why-title">
-    <div class="container narrow">
-      <h2 id="why-title">Why we publish our fees</h2>
-      <p>Because you should know the price before you spend an hour with anyone. Our fees are on file with regulators anyway; here they are in plain English. If another advisor won't show you theirs, ask them why.</p>
-      <p><a class="text-link" href="https://adviserinfo.sec.gov/firm/summary/337684" rel="noopener">Read our Form ADV on the SEC's adviser database</a></p>
+  <section class="section" aria-labelledby="why-t">
+    <div class="wrap">
+      <h2 id="why-t" class="visually-hidden">Why we publish our fees</h2>
+      <p class="statement statement-block" data-lit>You should know the price before you spend an hour with anyone. Our fees are on file with regulators anyway, so here they are in plain language.</p>
+      <p data-reveal style="margin-top:36px"><a class="link-arrow" href="https://adviserinfo.sec.gov/firm/summary/337684" rel="noopener"><span>Read our Form ADV on the SEC's adviser database</span>{{arrow}}</a></p>
     </div>
   </section>
 

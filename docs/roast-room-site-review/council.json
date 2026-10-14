@@ -1,0 +1,22 @@
+{
+  "title": "Is the SWM site ready to show Jake?",
+  "decision": "Show Jake the full prototype now, a trimmed version first, or hold the site until his answers and a compliance review are in.",
+  "mode": "full",
+  "options": [
+    { "id": "A", "label": "Show the full prototype now" },
+    { "id": "B", "label": "Show Version A + fees, starred questions" },
+    { "id": "C", "label": "Hold the site; send questions first" }
+  ],
+  "weights": {
+    "graham": { "weight": 3, "reason": "Is the product good enough to ship" },
+    "hormozi": { "weight": 3, "reason": "How to pitch Jake so he says yes" },
+    "bezos": { "weight": 2, "reason": "First impressions and reversibility" },
+    "martell": { "weight": 2, "reason": "Jake's scarce time" },
+    "wickman": { "weight": 2, "reason": "Path from draft to live site" },
+    "buffett": { "weight": 2, "reason": "Reputation and regulatory risk" },
+    "garyvee": { "weight": 1, "reason": "Marketing at the edges" }
+  },
+  "seats": ["bezos", "graham", "hormozi", "garyvee", "martell", "wickman", "buffett"],
+  "brief": "An outside builder drafted a 10-page site for a new two-advisor wealth manager with $0 under management. Decide how to show it to the founder: everything now, a trimmed version, or questions first.",
+  "assumptions": ["Jake has not commissioned the site (assumed)", "Payment for the work is not agreed (assumed)", "Success is Jake's direction and answers within two weeks (assumed)"]
+}

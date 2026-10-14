@@ -1,0 +1,43 @@
+{
+  "label": "GO",
+  "call": "Show Jake the trimmed version (Option B) live: Version A's homepage and the fee page on a 30-minute call booked on his Calendly. Open with his own band-edge numbers, settle the 13 starred questions, then name a fixed $4,000 price to launch as the last thing on the call.",
+  "recommended": "B",
+  "why": [
+    { "point": "Jake never asked for this; his reaction and his payment are the only real evidence he wants it.", "seat": "Graham", "framework": "Make something people want" },
+    { "point": "13 questions fit Jake's own 30-minute call; 41 is hours of unpaid homework.", "seat": "Bezos", "framework": "Work backwards from the customer" },
+    { "point": "Lead with his filing's $2,900 drop at the $2.5M band edge: proof you read it closely.", "seat": "Hormozi", "framework": "Lead magnets" },
+    { "point": "A link and a list die in the inbox; a live call gets decisions.", "seat": "Gary V", "framework": "Day Trading Attention" },
+    { "point": "Say the price: unspoken expectations become resentments.", "seat": "Martell", "framework": "1-3-1" }
+  ],
+  "minority": { "seat": "Gary V", "quote": "If nothing is booked by October 20, send the video then. That gives it three days to work before the October 23 kill date, not zero.", "would_have_to_be_true": "Jake answers a short video faster than a text, and the video holds nothing worth forwarding." },
+  "next_steps": [
+    { "when": "By Oct 16", "action": "Send the invite: line one is the band-edge finding, line two asks for 30 minutes on his Calendly." },
+    { "when": "On the call", "action": "Band edge, fees and reviewer, starred questions, a scroll of the rest, then $4,000 last." },
+    { "when": "By Oct 31", "action": "All 13 starred questions answered and terms signed, or the builder stops." }
+  ],
+  "kill_criteria": "No booking by Oct 23 after one text, Jake refuses any payment, or no reviewer and no signed terms by Oct 31: stop building.",
+  "conditions": [
+    "Cold dry run: someone new clears the 13 starred questions in under 20 minutes",
+    "No builder-written answers on compliance questions",
+    "Video under 3 minutes, unlisted, stamped draft, band-edge arithmetic only",
+    "$4,000 fixed to launch, said last: $1,000 now, $3,000 at launch or Dec 14"
+  ],
+  "fights": [
+    { "crux": "Live call or video first?", "story": "Four seats wanted live, two a video first, Buffett a link. Buffett moved to live after Gary V's inbox point; the video became a pre-read after booking." },
+    { "crux": "When to name a price?", "story": "Hormozi priced it in Round 1; Bezos and Graham wanted a yes first, then moved. The price now comes last, after the yes and a named reviewer." },
+    { "crux": "Does trimming hide the work?", "story": "Hormozi and Graham argued the full prototype at full strength; both still chose B, with the depth shown in a 30-second screen and a 2-minute scroll." }
+  ],
+  "amendments": [
+    { "seat": "Gary V", "amendment": "Make the invite's first line the band-edge finding.", "adopted": true, "reason": "No objection; fixes the cold ask." },
+    { "seat": "Gary V", "amendment": "Send the video as the Oct 20 chaser.", "adopted": false, "reason": "Conflicts with Buffett; forwarding risk unanswered." },
+    { "seat": "Buffett", "amendment": "Video only after booking; text as the chaser; no fee wording or titles on video.", "adopted": true, "reason": "Better argued than the chaser video." },
+    { "seat": "Hormozi", "amendment": "$3,000 at launch or Dec 14, whichever first.", "adopted": true, "reason": "Closes an open-ended loan." },
+    { "seat": "Bezos", "amendment": "Price after the yes and reviewer, fixed to launch, 28 questions included.", "adopted": true, "reason": "No objection." },
+    { "seat": "Graham", "amendment": "Price is the last thing on the call.", "adopted": true, "reason": "No objection." },
+    { "seat": "Martell", "amendment": "Fit the call in 30 minutes; cut the closing scroll.", "adopted": false, "reason": "Trim adopted; scroll kept at 2 minutes, since the video no longer tours the pages." },
+    { "seat": "Wickman", "amendment": "One owner per step; weekly open-question count.", "adopted": true, "reason": "No objection." }
+  ],
+  "cheapest_test": "A cold dry run of the video and the 13 starred questions before anything goes to Jake.",
+  "revisit": "October 31, with the call outcome, reviewer name, open-question count and terms status.",
+  "override_note": ""
+}

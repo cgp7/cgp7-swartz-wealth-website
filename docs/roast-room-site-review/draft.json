@@ -1,0 +1,18 @@
+{
+  "option": "B",
+  "label": "GO",
+  "recommendation": "Show Version A's homepage and the fee page on a live 30-minute call booked on Jake's Calendly, open with the band-edge finding, settle the 13 starred questions on the call, and name a $4,000 price before it ends.",
+  "conditions": [
+    "Cold dry run: someone new clears all 13 starred questions in under 20 minutes",
+    "Zero builder-written answers on compliance questions",
+    "Any hosted preview is password-protected, not indexed, stamped draft",
+    "A price is said out loud on the call"
+  ],
+  "next_steps": [
+    "By Oct 16: send the invite and ask for a Calendly booking",
+    "48 hours before the call: send a 3-minute draft video",
+    "By Oct 28: reviewer named, terms answered, 10 of 13 starred questions answered"
+  ],
+  "cheapest_test": "A cold dry run of the video and the 13 starred questions before the invite goes out.",
+  "kill_criteria": "No call booked by Oct 23 after one follow-up, Jake refuses any payment, or no reviewer by Oct 28: stop building."
+}

@@ -1,98 +1,137 @@
-/* Swartz Wealth Management: site behaviour.
-   Plain JavaScript, no dependencies. Every feature checks that its markup exists. */
+/* Swartz Wealth Management: behaviour (no animation library needed).
+   Navigation, header state, review mode, accordions, glossary, fee calculator. */
 (function () {
   "use strict";
 
+  var root = document.documentElement;
   var store = {
-    get: function (key) {
-      try { return window.localStorage.getItem(key); } catch (e) { return null; }
-    },
-    set: function (key, value) {
-      try { window.localStorage.setItem(key, value); } catch (e) { /* storage blocked: ignore */ }
-    }
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage blocked */ } }
   };
+  window.SWM = window.SWM || {};
+  window.SWM.reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Mobile navigation ---------- */
+  /* ---------- Header ---------- */
+  var header = document.querySelector(".site-header");
+  function onScroll() { if (header) header.classList.toggle("is-scrolled", window.scrollY > 24); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("site-nav");
   if (toggle && nav) {
     toggle.addEventListener("click", function () {
-      var open = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!open));
-      nav.classList.toggle("is-open", !open);
+      var open = toggle.getAttribute("aria-expanded") !== "true";
+      toggle.setAttribute("aria-expanded", String(open));
+      nav.classList.toggle("is-open", open);
+      document.body.style.overflow = open ? "hidden" : "";
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && nav.classList.contains("is-open")) {
-        toggle.setAttribute("aria-expanded", "false");
-        nav.classList.remove("is-open");
-        toggle.focus();
-      }
+      if (e.key === "Escape" && nav.classList.contains("is-open")) { toggle.click(); toggle.focus(); }
     });
   }
 
-  /* ---------- Prototype review mode ----------
-     Two homepage versions (A and B) and sticky notes for Jake.
-     Remove this block, the review-note elements and .review-* CSS before launch. */
-  var HOMES = { A: "index.html", B: "home-b.html" };
-  var pageVariant = document.body.getAttribute("data-variant");
-  if (pageVariant) store.set("swm-variant", pageVariant);
-  var variant = pageVariant || store.get("swm-variant") || "A";
-  if (!HOMES[variant]) variant = "A";
+  /* ---------- Review mode ----------
+     Version A / B (homepage only) and three note filters:
+     all notes, Jake's questions only, or none. Remove before launch. */
+  var DOC = "https://docs.google.com/document/d/1I0zcKUNqaicLX7HeIr7qSSVkU0cDw1fY1WqAFjhYsXM/edit";
+  var isHome = !!document.querySelector("[data-home]");
+  var variant = (new URLSearchParams(location.search).get("v") || document.body.getAttribute("data-variant") || store.get("swm-variant") || "A").toUpperCase();
+  if (variant !== "B") variant = "A";
+  var notes = store.get("swm-notes") || "all";
 
-  document.querySelectorAll("[data-home-link]").forEach(function (a) {
-    a.setAttribute("href", HOMES[variant]);
-  });
-
-  var notesOn = store.get("swm-notes") !== "off";
-  var root = document.documentElement;
-  root.classList.toggle("review-on", notesOn);
+  function applyVariant(v, refresh) {
+    variant = v;
+    store.set("swm-variant", v);
+    root.setAttribute("data-variant", v);
+    document.querySelectorAll(".hero-variant").forEach(function (el) { el.hidden = el.getAttribute("data-v") !== v; });
+    document.querySelectorAll("[data-home-link]").forEach(function (a) { a.setAttribute("href", v === "B" ? "home-b.html" : "index.html"); });
+    document.querySelectorAll(".review-bar [data-v]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-v") === v)); });
+    if (refresh && window.SWM.refresh) window.SWM.refresh();
+  }
+  function applyNotes(n) {
+    notes = n;
+    store.set("swm-notes", n);
+    root.setAttribute("data-notes", n);
+    document.querySelectorAll(".review-bar [data-n]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-n") === n)); });
+    if (window.SWM.refresh) window.SWM.refresh();
+  }
 
   var bar = document.createElement("div");
   bar.className = "review-bar";
   bar.setAttribute("role", "region");
   bar.setAttribute("aria-label", "Prototype review controls");
   bar.innerHTML =
-    '<span class="rb-label">Prototype</span>' +
-    '<a href="index.html" data-v="A">Version A</a>' +
-    '<a href="home-b.html" data-v="B">Version B</a>' +
-    '<span class="rb-sep" aria-hidden="true"></span>' +
-    '<button type="button" aria-pressed="' + notesOn + '">Notes for Jake</button>';
-  bar.querySelectorAll("a[data-v]").forEach(function (a) {
-    if (a.getAttribute("data-v") === variant) a.setAttribute("aria-current", "true");
-  });
-  bar.querySelector("button").addEventListener("click", function () {
-    notesOn = !notesOn;
-    this.setAttribute("aria-pressed", String(notesOn));
-    root.classList.toggle("review-on", notesOn);
-    store.set("swm-notes", notesOn ? "on" : "off");
-  });
+    '<span class="lbl" style="padding:0 6px 0 10px">Draft</span>' +
+    '<button type="button" data-v="A">Version A</button>' +
+    '<button type="button" data-v="B">Version B</button>' +
+    '<span class="sep" aria-hidden="true"></span>' +
+    '<button type="button" data-n="all">All notes</button>' +
+    '<button type="button" data-n="jake">Jake</button>' +
+    '<button type="button" data-n="off">Off</button>' +
+    '<span class="sep" aria-hidden="true"></span>' +
+    '<a class="doc" href="' + DOC + '" target="_blank" rel="noopener">Checklist</a>';
   document.body.appendChild(bar);
-
-  /* ---------- "Start here" router (accessible tabs) ---------- */
-  document.querySelectorAll("[data-router]").forEach(function (router) {
-    var tabs = Array.prototype.slice.call(router.querySelectorAll('[role="tab"]'));
-    function select(tab, focus) {
-      tabs.forEach(function (t) {
-        var on = t === tab;
-        t.setAttribute("aria-selected", String(on));
-        t.tabIndex = on ? 0 : -1;
-        var panel = document.getElementById(t.getAttribute("aria-controls"));
-        if (panel) panel.hidden = !on;
-      });
-      if (focus) tab.focus();
+  bar.addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (!b) return;
+    if (b.hasAttribute("data-v")) {
+      var v = b.getAttribute("data-v");
+      if (isHome) applyVariant(v, true);
+      else location.href = v === "B" ? "home-b.html" : "index.html";
     }
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener("click", function () { select(tab, false); });
-      tab.addEventListener("keydown", function (e) {
-        var next = null;
-        if (e.key === "ArrowRight" || e.key === "ArrowDown") next = tabs[(i + 1) % tabs.length];
-        if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = tabs[(i - 1 + tabs.length) % tabs.length];
-        if (e.key === "Home") next = tabs[0];
-        if (e.key === "End") next = tabs[tabs.length - 1];
-        if (next) { e.preventDefault(); select(next, true); }
-      });
+    if (b.hasAttribute("data-n")) applyNotes(b.getAttribute("data-n"));
+  });
+  applyVariant(variant, false);
+  applyNotes(notes);
+
+  /* ---------- Accordions ---------- */
+  document.querySelectorAll(".acc-item").forEach(function (item, i) {
+    var btn = item.querySelector(":scope > button");
+    var panel = item.querySelector(".acc-panel");
+    if (!btn || !panel) return;
+    var id = panel.id || "acc-" + i + "-" + Math.random().toString(36).slice(2, 7);
+    panel.id = id;
+    btn.setAttribute("aria-controls", id);
+    btn.setAttribute("aria-expanded", String(item.classList.contains("is-open")));
+    btn.addEventListener("click", function () {
+      var open = !item.classList.contains("is-open");
+      btn.setAttribute("aria-expanded", String(open));
+      if (window.gsap && !window.SWM.reduced) {
+        if (open) {
+          item.classList.add("is-open");
+          gsap.fromTo(panel, { height: 0 }, { height: "auto", duration: 0.6, ease: "power3.out", onComplete: window.SWM.refresh });
+          gsap.fromTo(panel.firstElementChild, { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out", delay: 0.05 });
+        } else {
+          gsap.to(panel, { height: 0, duration: 0.45, ease: "power3.inOut", onComplete: function () { item.classList.remove("is-open"); gsap.set(panel, { clearProps: "height" }); if (window.SWM.refresh) window.SWM.refresh(); } });
+        }
+      } else {
+        item.classList.toggle("is-open", open);
+      }
     });
-    select(tabs[0], false);
+  });
+
+  /* ---------- Glossary ---------- */
+  document.querySelectorAll("[data-gloss]").forEach(function (box) {
+    var buttons = box.querySelectorAll(".gloss-terms button");
+    var title = box.querySelector("[data-gloss-title]");
+    var text = box.querySelector("[data-gloss-text]");
+    var ours = box.querySelector("[data-gloss-ours]");
+    var def = box.querySelector(".gloss-def");
+    function show(b) {
+      buttons.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      var set = function () {
+        title.textContent = b.textContent;
+        text.textContent = b.getAttribute("data-def");
+        ours.textContent = b.getAttribute("data-ours") || "";
+      };
+      if (window.gsap && !window.SWM.reduced) {
+        gsap.to(def, { opacity: 0, y: -10, duration: 0.2, ease: "power2.in", onComplete: function () {
+          set(); gsap.fromTo(def, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" });
+        } });
+      } else { set(); }
+    }
+    buttons.forEach(function (b) { b.addEventListener("click", function () { show(b); }); });
   });
 
   /* ---------- Fee calculator ----------
@@ -105,88 +144,69 @@
     { max: 5000000, rate: 0.0085 },
     { max: Infinity, rate: 0.0075 }
   ];
-  var MIN = 25000;
-  var MAX = 10000000;
-
-  function bandIndex(amount) {
-    for (var i = 0; i < BANDS.length; i++) if (amount <= BANDS[i].max) return i;
-    return BANDS.length - 1;
-  }
-  function feeAsFiled(amount) {
-    return amount * BANDS[bandIndex(amount)].rate;
-  }
-  function feeTiered(amount) {
-    var fee = 0;
-    var floor = 0;
-    for (var i = 0; i < BANDS.length && amount > floor; i++) {
-      var top = Math.min(amount, BANDS[i].max);
-      fee += (top - floor) * BANDS[i].rate;
-      floor = BANDS[i].max;
-    }
+  var MIN = 25000, MAX = 10000000;
+  function bandIndex(a) { for (var i = 0; i < BANDS.length; i++) if (a <= BANDS[i].max) return i; return BANDS.length - 1; }
+  function feeAsFiled(a) { return a * BANDS[bandIndex(a)].rate; }
+  function feeTiered(a) {
+    var fee = 0, floor = 0;
+    for (var i = 0; i < BANDS.length && a > floor; i++) { fee += (Math.min(a, BANDS[i].max) - floor) * BANDS[i].rate; floor = BANDS[i].max; }
     return fee;
   }
-  var dollars = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+  var usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
   var plain = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
-
-  function toSlider(amount) {
-    return Math.round((Math.log(amount / MIN) / Math.log(MAX / MIN)) * 1000);
-  }
-  function fromSlider(pos) {
-    var raw = MIN * Math.pow(MAX / MIN, pos / 1000);
+  function toPos(a) { return Math.round(Math.log(a / MIN) / Math.log(MAX / MIN) * 1000); }
+  function fromPos(p) {
+    var raw = MIN * Math.pow(MAX / MIN, p / 1000);
     var step = raw < 1000000 ? 5000 : raw < 5000000 ? 25000 : 50000;
     return Math.round(raw / step) * step;
   }
+  window.SWM.fees = { feeAsFiled: feeAsFiled, feeTiered: feeTiered, bandIndex: bandIndex };
 
-  document.querySelectorAll("[data-fee-calc]").forEach(function (calc) {
-    var input = calc.querySelector("[data-fee-input]");
-    var range = calc.querySelector("[data-fee-range]");
-    var outAnnual = calc.querySelector("[data-fee-annual]");
-    var outMonthly = calc.querySelector("[data-fee-monthly]");
-    var outRate = calc.querySelector("[data-fee-rate]");
-    var outTiered = calc.querySelector("[data-fee-tiered]");
-    var bands = calc.querySelectorAll(".fee-band");
-    var rows = document.querySelectorAll("[data-band-row]");
+  document.querySelectorAll("[data-calc]").forEach(function (calc) {
+    var input = calc.querySelector("[data-calc-input]");
+    var range = calc.querySelector("[data-calc-range]");
+    var outYear = calc.querySelector("[data-calc-year]");
+    var outMonth = calc.querySelector("[data-calc-month]");
+    var outRate = calc.querySelector("[data-calc-rate]");
+    var outTier = calc.querySelector("[data-calc-tiered]");
+    var bands = calc.querySelectorAll(".calc-bands span");
+    var rows = document.querySelectorAll("[data-band]");
+    var shown = { y: 0, m: 0 };
     if (!input || !range) return;
 
-    function render(amount) {
-      var i = bandIndex(amount);
-      var fee = feeAsFiled(amount);
-      if (outAnnual) outAnnual.textContent = dollars.format(fee);
-      if (outMonthly) outMonthly.textContent = dollars.format(fee / 12);
-      if (outRate) outRate.textContent = (BANDS[i].rate * 100).toFixed(2) + "%";
-      bands.forEach(function (b, j) { b.classList.toggle("is-active", j === i); });
-      rows.forEach(function (r) { r.classList.toggle("is-active", Number(r.getAttribute("data-band-row")) === i); });
-      if (outTiered) {
-        var t = feeTiered(amount);
-        outTiered.textContent = dollars.format(fee) + " as filed vs " + dollars.format(t) +
-          " if tiered (" + (t / amount * 100).toFixed(2) + "% effective).";
+    function render(a) {
+      var i = bandIndex(a), fee = feeAsFiled(a);
+      if (outRate) outRate.textContent = (BANDS[i].rate * 100).toFixed(2) + "% of the whole balance, billed monthly.";
+      bands.forEach(function (b, j) { b.classList.toggle("on", j === i); });
+      rows.forEach(function (r) { r.classList.toggle("on", Number(r.getAttribute("data-band")) === i); });
+      if (outTier) {
+        var t = feeTiered(a);
+        outTier.textContent = usd.format(fee) + " as filed, against " + usd.format(t) + " if each band were billed at its own rate.";
+      }
+      if (window.gsap && !window.SWM.reduced) {
+        gsap.to(shown, { y: fee, m: fee / 12, duration: 0.6, ease: "power3.out", overwrite: true, onUpdate: function () {
+          if (outYear) outYear.textContent = usd.format(shown.y);
+          if (outMonth) outMonth.textContent = usd.format(shown.m);
+        } });
+      } else {
+        if (outYear) outYear.textContent = usd.format(fee);
+        if (outMonth) outMonth.textContent = usd.format(fee / 12);
       }
     }
-    function fromInput() {
-      var amount = Number(String(input.value).replace(/[^0-9.]/g, ""));
-      if (!isFinite(amount) || amount <= 0) return;
-      range.value = String(Math.max(0, Math.min(1000, toSlider(Math.max(MIN, Math.min(MAX, amount))))));
-      render(amount);
-    }
-    range.addEventListener("input", function () {
-      var amount = fromSlider(Number(range.value));
-      input.value = plain.format(amount);
-      render(amount);
+    range.addEventListener("input", function () { var a = fromPos(Number(range.value)); input.value = plain.format(a); render(a); });
+    input.addEventListener("input", function () {
+      var a = Number(String(input.value).replace(/[^0-9.]/g, ""));
+      if (!isFinite(a) || a <= 0) return;
+      range.value = String(Math.max(0, Math.min(1000, toPos(Math.max(MIN, Math.min(MAX, a))))));
+      render(a);
     });
-    input.addEventListener("input", fromInput);
-    input.addEventListener("blur", function () {
-      var amount = Number(String(input.value).replace(/[^0-9.]/g, ""));
-      if (isFinite(amount) && amount > 0) input.value = plain.format(amount);
-    });
-
+    input.addEventListener("blur", function () { var a = Number(String(input.value).replace(/[^0-9.]/g, "")); if (a > 0) input.value = plain.format(a); });
     var start = Number(calc.getAttribute("data-start")) || 750000;
     input.value = plain.format(start);
-    range.value = String(toSlider(start));
+    range.value = String(toPos(start));
     render(start);
   });
 
   /* ---------- Footer year ---------- */
-  document.querySelectorAll("[data-year]").forEach(function (el) {
-    el.textContent = String(new Date().getFullYear());
-  });
+  document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
 })();

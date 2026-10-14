@@ -55,3 +55,22 @@ There are two homepages to compare (see README). The council recommended Version
 - **Type:** Fraunces for headlines; the body keeps Instrument Sans from the current site.
 - **Map:** drawn from real shoreline coordinates, with pins in Chicago and Rockford.
 - **Layout:** mobile first. No horizontal scroll at 390px, and text meets WCAG AA contrast.
+
+## Version 2 (October 14, 2026)
+
+- **Visual direction:** a dark, cinematic look modelled on marble.studio, with oversized Inter Tight headlines, a WebGL water surface, hairline rows and white pill buttons.
+- **Motion:** GSAP animations, all optional.
+- **Copy:**
+    - No small uppercase labels above headlines.
+    - No icon grids or tick-mark lists.
+    - Rewritten to avoid common AI-writing patterns.
+- **Plain-language explainers:**
+    - a glossary of eight terms, each showing how it applies to SWM;
+    - services as open-and-close rows, each with a one-sentence answer;
+    - the custody diagram, animated;
+    - a fee calculator that shows dollars.
+- **Version A and B** now share one homepage and swap the headline and section order.
+- **Notes on the page use the codes from the Google Doc:**
+    - J for Jake's 9 questions;
+    - R for research before showing him;
+    - Q for later.

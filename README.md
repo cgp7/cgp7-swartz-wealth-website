@@ -12,17 +12,25 @@ Open `site/index.html` in a browser, or serve the folder:
 python3 -m http.server -d site 8000   # then open http://localhost:8000
 ```
 
-A dark bar at the bottom of every page is for review only:
+**Version 2 design.** The look is dark and cinematic, modelled on [marble.studio](https://marble.studio):
+- very large, tight Inter Tight headlines;
+- a WebGL "lake water" surface in the hero and call-to-action (`src/assets/js/water.js`);
+- hairline rows and white pill buttons;
+- GSAP motion (`src/assets/js/motion.js`): split-line headline reveals, statements that light up word by word as you scroll, a pinned sideways process section on desktop, the Lake Michigan map drawing itself, and animated custody connectors;
+- smooth scrolling with Lenis.
 
-- **Version A / Version B** switch between the two homepages. The rest of the site is shared, and the logo links back to whichever version you last viewed.
-- **Notes for Jake** shows or hides yellow sticky notes. Each one points to a numbered question in Jake's question list.
+Every animation is optional. With reduced motion, JavaScript off, or the CDN blocked, the content still shows and the calculator still works.
 
-| Homepage | File | Positioning |
-|---|---|---|
-| Version A | `index.html` | Business owners and professionals first, families second. Chicago and West Michigan, with a Lake Michigan map. |
-| Version B | `home-b.html` | Broad: families, individuals and business owners as three equal doors. Leads with transparency, with the fee calculator in the hero. |
+A bar at the bottom of every page is for review only:
 
-A simulated advisory council (the Roast Room) recommended **Version A** (7.0/10 against 4.3), with conditions. See [`docs/roast-room/verdict.md`](docs/roast-room/verdict.md).
+- **Version A / Version B** swaps the homepage headline and order live. A leads with business owners; B leads with the fee calculator.
+- **All notes / Jake / Off** filters the sticky notes:
+    - yellow **For Jake · J1 to J9** are the 9 questions for the first call;
+    - blue **Check first · R1 to R12** are things to research before showing him;
+    - grey **Later · Q#** are questions that can wait.
+
+  Use "Jake" when presenting.
+- **Checklist** opens the Google Doc that holds every J, R and Q item. The doc is private to its owner.
 
 ## Pages
 
@@ -52,9 +60,13 @@ python3 build.py      # rebuilds site/ from src/
 
 Commit both `src/` and the rebuilt `site/`, so `site/` can be deployed as is (Netlify, Cloudflare Pages or any static host).
 
-**Design tokens** (colors, fonts) are at the top of `src/assets/css/styles.css`: ink navy `#13222f`, paper `#f7f3ec`, lake `#1d6a73`, brass `#b48a4a`, with Fraunces and Instrument Sans from Google Fonts. Text colors meet WCAG AA contrast.
+**Design tokens** are at the top of `src/assets/css/styles.css`:
+- colors: near-black `#07090c`, off-white `#f2f2ef`, paper `#ecebe6`, accent blue `#9cc0ff`;
+- type: Inter Tight for headlines and Inter for text, both from Google Fonts.
 
-**Fee calculator** (`src/assets/js/main.js`) uses the schedule in Form ADV Part 2A (January 2026). As filed, one rate applies to the whole balance, so the fee drops at each band edge ($2.5M pays $25,000, $2.6M pays $22,100). The review note shows what tiered billing would charge. If Jake changes the schedule, update `BANDS` in `main.js` and the table in `src/fees.html`.
+The libraries load from jsDelivr at pinned versions: GSAP 3.13.0 with ScrollTrigger and SplitText, and Lenis 1.1.13.
+
+**Fee calculator** (`src/assets/js/main.js`) uses the schedule in Form ADV Part 2A (January 2026). As filed, one rate applies to the whole balance, so the fee drops at each band edge ($2.5M pays $25,000, $2.6M pays $22,100). The review note shows what tiered billing would charge. If Jake changes the schedule, update `BANDS` in `main.js` and the table in `src/partials/schedule.html`.
 
 ## Before launch
 
@@ -62,7 +74,13 @@ Commit both `src/` and the rebuilt `site/`, so `site/` can be deployed as is (Ne
 2. A state-registered-adviser compliance reviewer approves every page. Illinois bans testimonials, so the site has none.
 3. Post the insurance commission policy on the fee page (a council condition).
 4. Replace monogram placeholders with headshots.
-5. Remove review mode: the review-mode block in `src/assets/js/main.js`, every `<aside class="review-note">` / `<div class="review-note">`, and the `.review-*` CSS. Then rebuild.
+5. Remove review mode:
+    - the review-mode block in `src/assets/js/main.js`;
+    - every `<div class="note ...">`;
+    - the `.note` and `.review-bar` CSS;
+    - the `noindex` meta in `build.py`.
+
+    Then rebuild.
 6. Add the firm's privacy notice to `disclosures.html`.
 7. Decide hosting and the domain (Squarespace account owner), then archive each published version.
 
@@ -70,4 +88,5 @@ Commit both `src/` and the rebuilt `site/`, so `site/` can be deployed as is (Ne
 
 - [`docs/PLAN.md`](docs/PLAN.md): the redesign plan and the reasoning behind it
 - [`docs/RESEARCH.md`](docs/RESEARCH.md): what peer firms do well, the evidence on what converts, and compliance notes, with sources
-- [`docs/roast-room/`](docs/roast-room/): the council's brief, rounds and verdict
+- [`docs/roast-room/`](docs/roast-room/): the first council (positioning), which recommended Version A
+- [`docs/roast-room-site-review/`](docs/roast-room-site-review/): the full seven-advisor council on how to show Jake the site. Its verdict was to show the Version A homepage and the fee page on a live 30-minute call. (Its brief says 13 starred questions; the actual number is 9.)
